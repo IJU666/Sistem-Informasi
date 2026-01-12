@@ -1,0 +1,41 @@
+<svg width="894" height="1024" viewBox="0 0 894 1024" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M65.872 -5.63379H897V1023.96L630.004 983.936C615.937 981.828 602.134 978.204 588.832 973.128L446.868 918.946C412.521 905.837 382.436 883.397 359.941 854.107L174.864 613.125L34.7127 406.156C2.90661 359.186 -7.67488 300.81 5.59495 245.52L65.872 -5.63379Z" fill="#243796"/>
+<g clip-path="url(#clip0_2077_327)">
+<path d="M468.651 304.017C610.589 304.017 725.651 419.079 725.651 561.017C725.651 702.954 610.589 818.017 468.651 818.017C326.714 818.017 211.651 702.954 211.651 561.017C211.651 419.079 326.714 304.017 468.651 304.017Z" stroke="url(#paint0_linear_2077_327)" stroke-opacity="0.5" stroke-width="65"/>
+<circle cx="410.651" cy="519.017" r="110.5" fill="url(#paint1_linear_2077_327)" fill-opacity="0.24"/>
+</g>
+<g clip-path="url(#clip1_2077_327)">
+<circle cx="886.219" cy="33.8301" r="192.5" stroke="url(#paint2_linear_2077_327)" stroke-width="32"/>
+</g>
+<g clip-path="url(#clip2_2077_327)">
+<ellipse cx="190.577" cy="190.571" rx="190.577" ry="190.571" transform="matrix(0.984196 0.174514 -0.170465 0.98494 578.705 695.751)" fill="url(#paint3_linear_2077_327)" fill-opacity="0.17"/>
+</g>
+<defs>
+<linearGradient id="paint0_linear_2077_327" x1="325.651" y1="758.017" x2="635.651" y2="321.517" gradientUnits="userSpaceOnUse">
+<stop stop-color="#336699" stop-opacity="0"/>
+<stop offset="0.90868" stop-color="#91A8BF" stop-opacity="0.25"/>
+<stop offset="1" stop-color="#EFEAE4" stop-opacity="0.3"/>
+</linearGradient>
+<linearGradient id="paint1_linear_2077_327" x1="417.404" y1="506.739" x2="300.151" y2="507.967" gradientUnits="userSpaceOnUse">
+<stop offset="0.0961262" stop-color="#7F5AF0"/>
+<stop offset="1" stop-color="#EFEAE4"/>
+</linearGradient>
+<linearGradient id="paint2_linear_2077_327" x1="996.939" y1="-11.4648" x2="886.219" y2="242.33" gradientUnits="userSpaceOnUse">
+<stop stop-color="#7F5AF0"/>
+<stop offset="1" stop-color="#EFEAE4" stop-opacity="0.4"/>
+</linearGradient>
+<linearGradient id="paint3_linear_2077_327" x1="381.154" y1="175.049" x2="128.052" y2="175.565" gradientUnits="userSpaceOnUse">
+<stop stop-color="#EFEAE4"/>
+<stop offset="1" stop-color="#7F5AF0"/>
+</linearGradient>
+<clipPath id="clip0_2077_327">
+<rect width="485.109" height="521.325" fill="white" transform="translate(236.134 252.517)"/>
+</clipPath>
+<clipPath id="clip1_2077_327">
+<rect width="265.437" height="257.147" fill="white" transform="translate(630.485 -13.6699)"/>
+</clipPath>
+<clipPath id="clip2_2077_327">
+<rect width="349.787" height="271.526" fill="white" transform="matrix(0.982044 0.188653 -0.157516 0.987516 553.494 699.51)"/>
+</clipPath>
+</defs>
+</svg>
