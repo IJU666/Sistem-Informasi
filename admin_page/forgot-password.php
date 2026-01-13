@@ -18,57 +18,46 @@
         rel="stylesheet">
 
     <!-- Custom styles for this template-->
-    <link href="css/sb-admin-2.min.css" rel="stylesheet">
+     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
+   
 
 </head>
 
-<body class="bg-gradient-primary">
+<body style="background-image:url(./img/Bg-PWForgot.png);">
+    <div class="container min-vh-100 d-flex justify-content-center align-items-center">
 
-    <div class="container">
+        <div class="card border-0 shadow-lg rounded-lg p-5" style="width: 420px;">
 
-        <!-- Outer Row -->
-        <div class="row justify-content-center">
-
-            <div class="col-xl-10 col-lg-12 col-md-9">
-
-                <div class="card o-hidden border-0 shadow-lg my-5">
-                    <div class="card-body p-0">
-                        <!-- Nested Row within Card Body -->
-                        <div class="row">
-                            <div class="col-lg-6 d-none d-lg-block bg-password-image"></div>
-                            <div class="col-lg-6">
-                                <div class="p-5">
+                                   
                                     <div class="text-center">
-                                        <h1 class="h4 text-gray-900 mb-2">Forgot Your Password?</h1>
-                                        <p class="mb-4">We get it, stuff happens. Just enter your email address below
-                                            and we'll send you a link to reset your password!</p>
+                                        <img class="p-3" src="./img/lock.png" >
+                                        <h1 class="h4 text-gray-900 mb-2">Atur Ulang Kata Sandi</h1>
+                                        <p class="mb-4">Masukkan e-mail atau nomor HP yang terdaftar. Kami akan
+                                            mengirimkan kode verifikasi untuk atur ulang kata sandi
+                                        </p>
                                     </div>
-                                    <form class="user">
+
+                                    <form >
                                         <div class="form-group">
-                                            <input type="email" class="form-control form-control-user"
+                                            <input type="email" class="form-control"
                                                 id="exampleInputEmail" aria-describedby="emailHelp"
-                                                placeholder="Enter Email Address...">
+                                                placeholder="Email Aktif">
                                         </div>
-                                        <a href="login.html" class="btn btn-primary btn-user btn-block">
-                                            Reset Password
-                                        </a>
+                                        <div class="mt-3 text-center">
+                                            <a href="login.html" class="btn text-light align-items-center" style="background-color: #243796">
+                                                Reset Password
+                                            </a>
+                                        </div>
                                     </form>
-                                    <hr>
-                                    <div class="text-center">
-                                        <a class="small" href="register.html">Create an Account!</a>
-                                    </div>
-                                    <div class="text-center">
-                                        <a class="small" href="login.html">Already have an account? Login!</a>
-                                    </div>
-                                </div>
-                            </div>
+                                
+                            
+                            
                         </div>
                     </div>
                 </div>
 
-            </div>
-
-        </div>
+       
 
     </div>
 
