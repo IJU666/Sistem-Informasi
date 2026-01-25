@@ -101,38 +101,26 @@ include '../includes/header.php';
 <div class="container-fluid">
     <div class="row">
         <!-- Sidebar -->
-        <div class="col-md-2 bg-dark text-white p-3" style="min-height: 100vh;">
+<div class="col-md-2 bg-dark text-white p-3" style="min-height: 100vh;">
             <h6 class="text-muted small mb-3">Menu Utama</h6>
             <nav class="nav flex-column">
-                <a class="nav-link text-white bg-secondary rounded mb-2" href="dashboard.php">
+                <a class="nav-link text-white bg-secondary rounded" href="dashboard.php">
                     <i class="bi bi-speedometer2"></i> Dashboard
                 </a>
-                <a class="nav-link text-white-50" href="#">
-                    <i class="bi bi-people"></i> Pesanan
+                <a class="nav-link text-white-50  mb-2" href="kelola_pengguna.php">
+                    <i class="bi bi-people"></i> Kelola Pengguna
                 </a>
-                <a class="nav-link text-white-50" href="#">
-                    <i class="bi bi-chat"></i> Obrolan
+                <a class="nav-link text-white-50" href="laporan_global.php">
+                    <i class="bi bi-graph-up"></i> Laporan
                 </a>
             </nav>
             <h6 class="text-muted small mb-3 mt-4">Alat</h6>
             <nav class="nav flex-column">
-                <a class="nav-link text-white-50" href="#">
-                    <i class="bi bi-box"></i> Produk
+                <a class="nav-link text-white-50" href="kelola_kategori.php">
+                    <i class="bi bi-tags"></i> Kategori
                 </a>
-                <a class="nav-link text-white-50" href="#">
-                    <i class="bi bi-graph-up"></i> Analisis
-                </a>
-                <a class="nav-link text-white-50" href="#">
-                    <i class="bi bi-credit-card"></i> Pembayaran
-                </a>
-            </nav>
-            <h6 class="text-muted small mb-3 mt-4">Lainnya</h6>
-            <nav class="nav flex-column">
                 <a class="nav-link text-white-50" href="#">
                     <i class="bi bi-gear"></i> Pengaturan
-                </a>
-                <a class="nav-link text-white-50" href="#">
-                    <i class="bi bi-question-circle"></i> Bantuan
                 </a>
             </nav>
         </div>
@@ -243,6 +231,7 @@ include '../includes/header.php';
                         </div>
                     </div>
                 </div>
+
 
             </div>
         </div>
