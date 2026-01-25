@@ -368,22 +368,7 @@ new Chart(userCtx, {
 });
 
 // Customer Donut Chart
-const customerCtx = document.getElementById('customerChart').getContext('2d');
-new Chart(customerCtx, {
-    type: 'doughnut',
-    data: {
-        labels: ['New', 'Repeated'],
-        datasets: [{
-            data: [34249, 1420],
-            backgroundColor: ['#2196F3', '#E0E0E0']
-        }]
-    },
-    options: {
-        responsive: true,
-        maintainAspectRatio: false,
-        plugins: { legend: { display: false } }
-    }
-});
+
 </script>
 
 <?php include '../includes/footer.php'; ?>
