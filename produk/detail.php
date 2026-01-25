@@ -176,14 +176,8 @@ include '../includes/navbar.php';
 </style>
 
 <div class="container py-4">
-    <!-- Breadcrumb -->
-    <nav aria-label="breadcrumb">
-        <ol class="breadcrumb">
-            <li class="breadcrumb-item"><a href="../index.php">Beranda</a></li>
-            <li class="breadcrumb-item"><a href="katalog.php">Buah & Sayuran</a></li>
-            <li class="breadcrumb-item active"><?= htmlspecialchars($produk['nama_produk']) ?></li>
-        </ol>
-    </nav>
+   
+
 
     <div class="row">
         <!-- Product Images -->

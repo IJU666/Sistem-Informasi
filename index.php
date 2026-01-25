@@ -75,7 +75,7 @@ function getRating($pdo, $id_produk) {
         <div class="row align-items-center">
             <div class="col-lg-6">
                 <h1 class="display-5 fw-bold mb-3 ngajual">Dapatkan Barang<br>Berkualitas<br>dengan Aman</h1>
-                <a href="produk/katalog.php" class="text-white btn btn-lg btn-ngajual">Lihat Produk</a>
+                <a href="produk/katalog.php" class="btn btn-light btn-lg btn-ngajual">Lihat Produk</a>
             </div>
             <div class="col-lg-6 text-center">
                 <i class="bi bi-shield-check" style="font-size: 200px; color: #243797; opacity: 0.2;"></i>

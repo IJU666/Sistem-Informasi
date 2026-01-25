@@ -4,7 +4,7 @@
 define('DB_HOST', 'localhost');
 define('DB_USER', 'root');
 define('DB_PASS', '');
-define('DB_NAME', 'ngalapak_db');
+define('DB_NAME', 'ngajual');
 
 // Fungsi koneksi database
 function connectDB() {

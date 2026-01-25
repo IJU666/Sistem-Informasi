@@ -16,70 +16,86 @@
     <link
         href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
         rel="stylesheet">
-
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
     <!-- Custom styles for this template-->
-    <link href="css/sb-admin-2.min.css" rel="stylesheet">
+    <!-- <link href="css/sb-admin-2.min.css" rel="stylesheet"> -->
+
 
 </head>
 
 <body class="bg-gradient-primary">
 
-    <div class="container">
+    <div class="container ">
 
         <div class="card o-hidden border-0 shadow-lg my-5">
             <div class="card-body p-0">
                 <!-- Nested Row within Card Body -->
                 <div class="row">
-                    <div class="col-lg-5 d-none d-lg-block bg-register-image"></div>
-                    <div class="col-lg-7">
+                    <div class="col-lg-6 d-none d-lg-block bg-register-image">
                         <div class="p-5">
                             <div class="text-center">
-                                <h1 class="h4 text-gray-900 mb-4">Create an Account!</h1>
+                                <h1 class="h4 text-gray-900 mb-4">Daftar Akun</h1>
                             </div>
                             <form class="user">
                                 <div class="form-group row">
-                                    <div class="col-sm-6 mb-3 mb-sm-0">
+                                    <div class="col-lg-6 mb-3">
                                         <input type="text" class="form-control form-control-user" id="exampleFirstName"
-                                            placeholder="First Name">
+                                            placeholder="Nama Depan">
                                     </div>
                                     <div class="col-sm-6">
                                         <input type="text" class="form-control form-control-user" id="exampleLastName"
-                                            placeholder="Last Name">
+                                            placeholder="Nama Belakang">
                                     </div>
                                 </div>
-                                <div class="form-group">
-                                    <input type="email" class="form-control form-control-user" id="exampleInputEmail"
-                                        placeholder="Email Address">
+                                <div class="form-group mb-3">
+                                    <input type="number" class="form-control form-control-user" id="NIM"
+                                        placeholder="Nomor Induk Mahasiswa">
                                 </div>
-                                <div class="form-group row">
-                                    <div class="col-sm-6 mb-3 mb-sm-0">
+                                <div class="form-group mb-3">
+                                    <input type="email" class="form-control form-control-user" id="exampleInputEmail"
+                                        placeholder="Email Aktif ">
+                                </div>
+                                    <div class="mb-3">
                                         <input type="password" class="form-control form-control-user"
                                             id="exampleInputPassword" placeholder="Password">
                                     </div>
-                                    <div class="col-sm-6">
+                                    <div class="mb-3">
                                         <input type="password" class="form-control form-control-user"
                                             id="exampleRepeatPassword" placeholder="Repeat Password">
                                     </div>
-                                </div>
-                                <a href="login.html" class="btn btn-primary btn-user btn-block">
-                                    Register Account
+                                <a href="login.html" style="background-color: #243796;" class="btn col-12 text-light">
+                                    Daftar Akun
                                 </a>
                                 <hr>
+                                <div class="col-12 justify-content-center">
+                                    <center>
                                 <a href="index.html" class="btn btn-google btn-user btn-block">
-                                    <i class="fab fa-google fa-fw"></i> Register with Google
+                                    <i class="fab fa-google fa-fw"></i> Register with 
                                 </a>
                                 <a href="index.html" class="btn btn-facebook btn-user btn-block">
                                     <i class="fab fa-facebook-f fa-fw"></i> Register with Facebook
                                 </a>
+                                </center>
+                                </div>
                             </form>
                             <hr>
                             <div class="text-center">
-                                <a class="small" href="forgot-password.html">Forgot Password?</a>
+                             
                             </div>
                             <div class="text-center">
                                 <a class="small" href="login.html">Already have an account? Login!</a>
                             </div>
-                        </div>
+                        </div></div>
+                    <div class="col-lg-6 position-relative overflow-hidden">
+                        <img src="./img/bg-Register.png" alt="" srcset="" class=" w-100 end-0 position-absolute" style="object-fit: cover; z-index: 0;">
+                        <div class="p-5 position-relative align-items-center justify-content-center d-flex h-100" style="z-index: 1;">
+                            <div class=" text-light">
+                                <p class="fs-1" style="margin-bottom: -10px;">Hallo,</p>
+                                <p class="fs-1 fw-bold">Selamat Datang!</p>
+                               <p style="margin-bottom: -5px;"><small>Masuk untuk melanjutkan berbelanja.</small> </p>
+                               <p><small>Nikmati penawaran menarik lainnya di <b class="text-warning">NGAJUAL!</b></small> </p>
+                            </div>
+                                
                     </div>
                 </div>
             </div>
