@@ -28,7 +28,7 @@ include '../includes/header.php';
                         </div>
                         <?php unset($_SESSION['error']); ?>
                     <?php endif; ?>
-                            <form class="user" action="process_register.php" method="POST">
+                            <form action="process_register.php" method="POST">
                                <div class="mb-3">
                             <label for="nama" class="form-label">Nama Lengkap</label>
                             <input type="text" class="form-control" id="nama" name="nama" required>
@@ -82,15 +82,13 @@ include '../includes/header.php';
                             </div>
                         </div>
                         
-                        <div class="mb-3 form-check">
+                          <div class="mb-3 form-check">
                             <input type="checkbox" class="form-check-input" id="agree" required>
                             <label class="form-check-label" for="agree">
                                 Saya setuju dengan <a href="#">syarat dan ketentuan</a>
                             </label>
                         </div>
-                                <a href="login.html" style="background-color: #243796;" class="btn col-12 text-light">
-                                    Daftar Akun
-                                </a>
+                                <button type="submit" class="btn btn-primary w-100 py-2 mb-3">Daftar Akun</button>
                                 <hr>
                                 <div class="col-12 justify-content-center">
                                     <center>
@@ -127,6 +125,25 @@ include '../includes/header.php';
         </div>
 
     </div>
+
+    <script>
+    // Show/hide toko fields based on role selection
+    document.getElementById('role').addEventListener('change', function() {
+        const tokoFields = document.getElementById('toko-fields');
+        const namaToko = document.getElementById('nama_toko');
+        const deskripsiToko = document.getElementById('deskripsi_toko');
+        
+        if (this.value === 'penjual') {
+            tokoFields.style.display = 'block';
+            namaToko.required = true;
+        } else {
+            tokoFields.style.display = 'none';
+            namaToko.required = false;
+            namaToko.value = '';
+            deskripsiToko.value = '';
+        }
+    });
+</script>
 
     <!-- Bootstrap core JavaScript-->
     <script src="vendor/jquery/jquery.min.js"></script>

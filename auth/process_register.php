@@ -45,9 +45,9 @@ try {
     }
     
     // Hash password (production)
-    // $hashed_password = password_hash($password, PASSWORD_DEFAULT);
+    $hashed_password = password_hash($password, PASSWORD_DEFAULT);
     // Untuk demo, simpan plain text (JANGAN DIGUNAKAN DI PRODUCTION!)
-    $hashed_password = $password;
+    // $hashed_password = $password;
     
     // Insert user
     $stmt = $pdo->prepare("
