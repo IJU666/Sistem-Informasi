@@ -1,6 +1,6 @@
 <?php
 require_once '../config/session.php';
-
+// baleg
 // Jika sudah login, redirect ke dashboard sesuai role
 if (isLoggedIn()) {
     if (isAdmin()) {
@@ -63,7 +63,7 @@ include '../includes/header.php';
                                     <span class="d-block">Selamat Datang!</span>
                                 </h1>
                                 <p class="position-relative" style="z-index: 1;">Masuk untuk memulai belanja. <br>
-                                    Nikmati penawaran lainnya di <b>ngejual!</b> </p>
+                                    Nikmati penawaran lainnya di <b class="text-warning">Ngajual!</b> </p>
                             </div>
                             <div class="col-lg-6">
                                 <div class="p-5">
@@ -107,13 +107,11 @@ include '../includes/header.php';
                                                 <a class="small" href="forgot-password.php">Lupa Password?</a>
                                             </div>
                                             <div class="justify-content-between d-flex">
-                                                <button class="btn btn-ngajual text-light col-5" type="submit"
+                                                <button class="btn btn-ngajual text-light col-12" type="submit"
                                                     style="background-color: #243796;">Login</button>
                                             </div>
                                         </div>
-                                        <a href="index.html" class="btn  btn-user btn-block col-12 mt-3 border shadow">
-                                            <i class="fab fa-google fa-fw"></i> Masuk Dengan Google
-                                        </a>
+
                                     </form>
                                     <hr>
                                     <div class="text-center">
