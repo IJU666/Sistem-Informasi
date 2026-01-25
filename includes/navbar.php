@@ -22,7 +22,7 @@
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
     <div class="container">
         <!-- Logo -->
-        <a class="navbar-brand fw-bolder ngajual fs-4" href="index.php">NGAJUAL</a>
+        <a class="navbar-brand fw-bolder ngajual fs-4" href="../index.php">NGAJUAL</a>
 
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarMain" aria-controls="navbarMain" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
