@@ -1,0 +1,127 @@
+/* assets/css/style.css */
+
+.ngajual {
+    color: #243797;
+}
+
+.btn-ngajual {
+    background-color: #243797;
+    border-color: #243797;
+    color: white;
+}
+
+.btn-ngajual:hover {
+    background-color: #1a2968;
+    border-color: #1a2968;
+    color: white;
+}
+
+.hero-banner {
+    position: relative;
+    overflow: hidden;
+}
+
+.hero-banner::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: url('../img/pattern.png') repeat;
+    opacity: 0.1;
+}
+
+.card {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.15) !important;
+}
+
+.kategori-icon {
+    transition: all 0.3s ease;
+}
+
+.kategori-icon:hover {
+    transform: scale(1.1);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2) !important;
+}
+
+.navbar-brand {
+    font-size: 1.5rem;
+    letter-spacing: 1px;
+}
+
+.bg-primary {
+    background-color: #243797 !important;
+}
+
+.text-primary {
+    color: #243797 !important;
+}
+
+.btn-primary {
+    background-color: #243797;
+    border-color: #243797;
+}
+
+.btn-primary:hover {
+    background-color: #1a2968;
+    border-color: #1a2968;
+}
+
+.btn-outline-primary {
+    color: #243797;
+    border-color: #243797;
+}
+
+.btn-outline-primary:hover {
+    background-color: #243797;
+    border-color: #243797;
+    color: white;
+}
+
+/* Custom Badge */
+.badge.bg-danger {
+    font-size: 0.65rem;
+}
+
+/* Footer Links */
+footer a:hover {
+    opacity: 0.8;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+    .hero-banner {
+        min-height: 40vh !important;
+    }
+    
+    .display-4 {
+        font-size: 2rem;
+    }
+    
+    .display-5 {
+        font-size: 1.75rem;
+    }
+}
+
+/* Alert Styling */
+.alert {
+    border-radius: 8px;
+}
+
+/* Card Product Image Container */
+.card-img-top {
+    object-fit: cover;
+    height: 200px;
+}
+
+/* Loading Spinner */
+.spinner-border-sm {
+    width: 1rem;
+    height: 1rem;
+}
