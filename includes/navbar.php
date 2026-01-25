@@ -5,7 +5,8 @@
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
     <div class="container">
         <a class="navbar-brand text-secondary fs-6" href="auth/register.php">Daftar Akun</a>
-        <button class="navbar-toggler ms-auto" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTop" aria-controls="navbarTop" aria-expanded="false" aria-label="Toggle navigation">
+        <button class="navbar-toggler ms-auto" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTop"
+            aria-controls="navbarTop" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarTop">
@@ -24,7 +25,8 @@
         <!-- Logo -->
         <a class="navbar-brand fw-bolder ngajual fs-4" href="../index.php">NGAJUAL</a>
 
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarMain" aria-controls="navbarMain" aria-expanded="false" aria-label="Toggle navigation">
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarMain"
+            aria-controls="navbarMain" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
 
@@ -38,7 +40,7 @@
                     </button>
                 </form>
             </div>
-            
+
             <div class="d-flex align-items-center gap-3">
                 <?php if (isLoggedIn()): ?>
                     <div class="dropdown">
@@ -50,11 +52,11 @@
                                 <li><a class="dropdown-item" href="../admin/dashboard.php">Dashboard Admin</a></li>
                             <?php elseif (isPenjual()): ?>
                                 <li><a class="dropdown-item" href="../penjual/dashboard.php">Dashboard Penjual</a></li>
-                            <?php else: ?>
-                                <li><a class="dropdown-item" href="../pembeli/dashboard.php">Dashboard</a></li>
                             <?php endif; ?>
-                            <li><hr class="dropdown-divider"></li>
-                            <li><a class="dropdown-item" href="auth/logout.php">Logout</a></li>
+                            <li>
+                                <hr class="dropdown-divider">
+                            </li>
+                            <li><a class="dropdown-item" href="../auth/logout.php">Logout</a></li>
                         </ul>
                     </div>
                 <?php else: ?>
@@ -62,7 +64,7 @@
                         <i class="bi bi-person"></i> Masuk
                     </a>
                 <?php endif; ?>
-                
+
                 <a href="../keranjang/index.php" class="text-dark position-relative">
                     <i class="bi bi-cart3 fs-5"></i>
                     <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
