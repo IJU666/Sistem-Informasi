@@ -10,23 +10,26 @@ if (isLoggedIn()) {
 include '../includes/header.php';
 ?>
 
-<div class="container py-5">
-    <div class="row justify-content-center">
-        <div class="col-md-6">
-            <div class="card shadow">
-                <div class="card-body p-5">
-                    <h2 class="text-center mb-4 fw-bold ngajual">Daftar Akun NGAJUAL</h2>
-                    
-                    <?php if (isset($_SESSION['error'])): ?>
+    <div class="container ">
+
+        <div class="card o-hidden border-0 shadow-lg my-5">
+            <div class="card-body p-0">
+                <!-- Nested Row within Card Body -->
+                <div class="row">
+                    <div class="col-lg-6 d-none d-lg-block bg-register-image">
+                        <div class="p-5">
+                            <div class="text-center">
+                                <h1 class="h4 text-gray-900 mb-4">Daftar Akun</h1>
+                            </div>
+                            <?php if (isset($_SESSION['error'])): ?>
                         <div class="alert alert-danger alert-dismissible fade show" role="alert">
                             <?= htmlspecialchars($_SESSION['error']) ?>
                             <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
                         </div>
                         <?php unset($_SESSION['error']); ?>
                     <?php endif; ?>
-                    
-                    <form action="process_register.php" method="POST">
-                        <div class="mb-3">
+                            <form class="user" action="process_register.php" method="POST">
+                               <div class="mb-3">
                             <label for="nama" class="form-label">Nama Lengkap</label>
                             <input type="text" class="form-control" id="nama" name="nama" required>
                         </div>
@@ -85,36 +88,52 @@ include '../includes/header.php';
                                 Saya setuju dengan <a href="#">syarat dan ketentuan</a>
                             </label>
                         </div>
-                        
-                        <button type="submit" class="btn btn-ngajual w-100 py-2 mb-3">Daftar</button>
-                        
-                        <p class="text-center mb-0">
-                            Sudah punya akun? <a href="login.php" class="text-decoration-none">Masuk Sekarang</a>
-                        </p>
-                    </form>
+                                <a href="login.html" style="background-color: #243796;" class="btn col-12 text-light">
+                                    Daftar Akun
+                                </a>
+                                <hr>
+                                <div class="col-12 justify-content-center">
+                                    <center>
+                                <a href="index.html" class="btn btn-google btn-user btn-block">
+                                    <i class="fab fa-google fa-fw"></i> Register with 
+                                </a>
+                                <a href="index.html" class="btn btn-facebook btn-user btn-block">
+                                    <i class="fab fa-facebook-f fa-fw"></i> Register with Facebook
+                                </a>
+                                </center>
+                                </div>
+                            </form>
+                            <hr>
+                            <div class="text-center">
+                             
+                            </div>
+                            <div class="text-center">
+                                <a class="small" href="login.php">Already have an account? Login!</a>
+                            </div>
+                        </div></div>
+                    <div class="col-lg-6 position-relative overflow-hidden">
+                        <img src="../assets/login.png" alt="" srcset="" class=" end-0 position-absolute" style="object-fit: cover; z-index: 0;" width="">
+                        <div class="p-5 position-relative align-items-center justify-content-center d-flex h-100" style="z-index: 1;">
+                            <div class=" text-light">
+                                <p class="fs-1" style="margin-bottom: -10px;">Hallo,</p>
+                                <p class="fs-1 fw-bold">Selamat Datang!</p>
+                               <p style="margin-bottom: -5px;"><small>Masuk untuk melanjutkan berbelanja.</small> </p>
+                               <p><small>Nikmati penawaran menarik lainnya di <b class="text-warning">NGAJUAL!</b></small> </p>
+                            </div>
+                                
+                    </div>
                 </div>
             </div>
         </div>
+
     </div>
-</div>
 
-<script>
-// Show/hide toko fields based on role selection
-document.getElementById('role').addEventListener('change', function() {
-    const tokoFields = document.getElementById('toko-fields');
-    const namaToko = document.getElementById('nama_toko');
-    const deskripsiToko = document.getElementById('deskripsi_toko');
-    
-    if (this.value === 'penjual') {
-        tokoFields.style.display = 'block';
-        namaToko.required = true;
-    } else {
-        tokoFields.style.display = 'none';
-        namaToko.required = false;
-        namaToko.value = '';
-        deskripsiToko.value = '';
-    }
-});
-</script>
+    <!-- Bootstrap core JavaScript-->
+    <script src="vendor/jquery/jquery.min.js"></script>
+    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 
-<?php include '../includes/footer.php'; ?>
+    <!-- Core plugin JavaScript-->
+    <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
+
+    <!-- Custom scripts for all pages-->
+    <script src="js/sb-admin-2.min.js"></script>

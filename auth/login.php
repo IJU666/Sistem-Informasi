@@ -56,7 +56,7 @@ include '../includes/header.php';
                         <div class="row">
                             <div
                                 class="col-lg-6 d-flex justify-content-center align-items-center flex-column position-relative  text-white">
-                                <img src="../admin_page/img/login.png" alt=""
+                                <img src="../assets/login.png" alt=""
                                     class="position-absolute top-0 start-0 w-100 h-100 object-fit-cover">
                                 <h1 class="position-relative" style="z-index: 1;">
                                     <span>Hallo</span>
