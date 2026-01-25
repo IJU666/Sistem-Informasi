@@ -57,7 +57,7 @@ $kategoris = $stmt_kat->fetchAll();
         <!-- Sidebar Filter -->
         <div class="col-md-3 mb-4">
             <div class="card">
-                <div class="card-header bg-primary text-white">
+                <div class="card-header text-white" style="background-color: #243796; !important">
                     <h5 class="mb-0"><i class="bi bi-funnel"></i> Filter</h5>
                 </div>
                 <div class="card-body">

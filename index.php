@@ -38,7 +38,7 @@ function getRating($pdo, $id_produk) {
 ?>
 
 <!-- Hero Section -->
-<header class="text-white d-flex align-items-center hero-banner" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); min-height: 50vh;">
+<header class="text-white d-flex align-items-center hero-banner" style="background: linear-gradient(135deg, #243796 0%, #475ED2 100%); min-height: 50vh;">
     <div class="container">
         <div class="row align-items-center">
             <div class="col-lg-8">
@@ -70,15 +70,12 @@ function getRating($pdo, $id_produk) {
 </section>
 
 <!-- Promo Banner -->
-<header class="text-dark d-flex align-items-center" style="background: linear-gradient(to right, #e0eafc, #cfdef3); min-height:40vh">
+<header class="text-dark d-flex align-items-center" style="background:  url('assets/promo.png'); background-size: cover; background-position: center; min-height:40vh">
     <div class="container">
         <div class="row align-items-center">
             <div class="col-lg-6">
-                <h1 class="display-5 fw-bold mb-3 ngajual">Dapatkan Barang<br>Berkualitas<br>dengan Aman</h1>
-                <a href="produk/katalog.php" class="text-white btn btn-lg btn-ngajual">Lihat Produk</a>
-            </div>
-            <div class="col-lg-6 text-center">
-                <i class="bi bi-shield-check" style="font-size: 200px; color: #243797; opacity: 0.2;"></i>
+                <h1 class="display-5 fw-bold mb-3 ngajual " style="color: #243796;">Dapatkan Barang<br>Berkualitas<br>dengan Aman</h1>
+                <a href="produk/katalog.php" class="btn text-light btn-lg btn-ngajual" style="background-color: #243796; !important">Lihat Produk</a>
             </div>
         </div>
     </div>
@@ -147,9 +144,10 @@ function getRating($pdo, $id_produk) {
         </div>
         
         <div class="text-center mt-4">
-            <a href="produk/katalog.php" class="btn btn-primary btn-lg">Lihat Semua Produk</a>
+            <a href="produk/katalog.php" class="btn btn-primary btn-lg" style="background-color: #243796; border: 0px; !important">Lihat Semua Produk</a>
         </div>
     </div>
 </section>
 
 <?php include 'includes/footer.php'; ?>
+<!-- balergefefuyhefhuehfiuehfjei -->
