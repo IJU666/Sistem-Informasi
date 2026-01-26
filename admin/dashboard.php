@@ -221,7 +221,7 @@ include '../includes/header.php';
             </div>
 
             <!-- Bottom Charts -->
-            <div class="row g-3">
+            <div class="row g-3 col-12">
                 <!-- User Analytics -->
                 <div class="col-md-6">
                     <div class="card shadow-sm border-0">
