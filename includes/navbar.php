@@ -52,6 +52,8 @@
                                 <li><a class="dropdown-item" href="../admin/dashboard.php">Dashboard Admin</a></li>
                             <?php elseif (isPenjual()): ?>
                                 <li><a class="dropdown-item" href="../penjual/dashboard.php">Dashboard Penjual</a></li>
+                            <?php elseif (isPembeli()): ?>
+                                <li><a class="dropdown-item" href="../pembeli/dashboard.php">Riwayat Pemesanan</a></li>
                             <?php endif; ?>
                             <li>
                                 <hr class="dropdown-divider">
