@@ -50,6 +50,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['tambah_kategori'])) {
             $message_type = 'danger';
         }
     }
+    // wdhjuww
 
     // Insert ke database jika tidak ada error
     if ($message_type != 'danger') {
