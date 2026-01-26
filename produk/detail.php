@@ -12,6 +12,7 @@ $stmt = $pdo->prepare("
         k.nama_kategori,
         pj.nama_toko,
         pj.deskripsi_toko,
+        p.foto_produk,
         u.nama as nama_penjual,
         COALESCE(AVG(r.rating), 0) as avg_rating,
         COUNT(DISTINCT r.id_rating) as total_rating,
@@ -31,6 +32,25 @@ $produk = $stmt->fetch();
 if (!$produk) {
     header('Location: katalog.php');
     exit;
+}
+
+// Prepare product images (support up to 3 images)
+$product_images = [];
+if (!empty($produk['foto_produk'])) {
+    // Main image
+    $product_images[] = $produk['foto_produk'];
+    
+    // Look for additional images with pattern: produk_timestamp_uniqid_1.ext, produk_timestamp_uniqid_2.ext
+    $main_image_info = pathinfo($produk['foto_produk']);
+    $base_name = preg_replace('/_\d+\./', '_', $main_image_info['basename']); // Remove the index number
+    
+    // Try to find up to 2 more images
+    for ($i = 1; $i <= 2; $i++) {
+        $additional_image = str_replace('.' . $main_image_info['extension'], "_$i." . $main_image_info['extension'], $produk['foto_produk']);
+        if (file_exists('../assets/img/uploads/' . $additional_image)) {
+            $product_images[] = $additional_image;
+        }
+    }
 }
 
 // Get reviews
@@ -76,29 +96,43 @@ include '../includes/navbar.php';
     background: #f8f9fa;
     border-radius: 10px;
     overflow: hidden;
+    height: 450px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 .product-main-image {
-    width: 100%;
-    height: 400px;
+    max-width: 100%;
+    max-height: 450px;
     object-fit: contain;
     background: white;
+    transition: opacity 0.5s ease-in-out;
+}
+.product-main-image.fade-out {
+    opacity: 0;
 }
 .product-thumbnails {
     display: flex;
     gap: 10px;
     margin-top: 15px;
+    justify-content: center;
 }
 .thumbnail {
-    width: 80px;
-    height: 80px;
+    width: 100px;
+    height: 100px;
     border: 2px solid #e0e0e0;
     border-radius: 8px;
     cursor: pointer;
     overflow: hidden;
     transition: all 0.3s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: white;
 }
 .thumbnail:hover, .thumbnail.active {
     border-color: #243797;
+    box-shadow: 0 2px 8px rgba(36, 55, 150, 0.3);
 }
 .thumbnail img {
     width: 100%;
@@ -173,31 +207,45 @@ include '../includes/navbar.php';
     border-radius: 5px;
     font-size: 0.85rem;
 }
+.image-placeholder {
+    font-size: 150px;
+    color: #ddd;
+}
 </style>
 
 <div class="container py-4">
-   
-
+    <!-- Breadcrumb -->
+    <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="../index.php">Beranda</a></li>
+            <li class="breadcrumb-item"><a href="katalog.php"><?= htmlspecialchars($produk['nama_kategori']) ?></a></li>
+            <li class="breadcrumb-item active" aria-current="page"><?= htmlspecialchars($produk['nama_produk']) ?></li>
+        </ol>
+    </nav>
 
     <div class="row">
         <!-- Product Images -->
         <div class="col-md-5 mb-4">
-            <div class="product-image-container">
-                <div class="text-center p-4">
-                    <i class="bi bi-image product-main-image" style="font-size: 200px; color: #ddd; display: flex; align-items: center; justify-content: center;"></i>
-                </div>
+            <div class="product-image-container" id="mainImageContainer">
+                <?php if (!empty($product_images)): ?>
+                    <img src="../assets/img/uploads/<?= htmlspecialchars($product_images[0]) ?>" 
+                         alt="<?= htmlspecialchars($produk['nama_produk']) ?>" 
+                         class="product-main-image" 
+                         id="mainImage">
+                <?php else: ?>
+                    <i class="bi bi-image image-placeholder"></i>
+                <?php endif; ?>
             </div>
+            
+            <?php if (!empty($product_images)): ?>
             <div class="product-thumbnails">
-                <div class="thumbnail active">
-                    <i class="bi bi-image" style="font-size: 40px; color: #ddd;"></i>
+                <?php foreach ($product_images as $index => $image): ?>
+                <div class="thumbnail <?= $index === 0 ? 'active' : '' ?>" onclick="changeImage(<?= $index ?>)" data-index="<?= $index ?>">
+                    <img src="../assets/img/uploads/<?= htmlspecialchars($image) ?>" alt="Thumbnail <?= $index + 1 ?>">
                 </div>
-                <div class="thumbnail">
-                    <i class="bi bi-image" style="font-size: 40px; color: #ddd;"></i>
-                </div>
-                <div class="thumbnail">
-                    <i class="bi bi-image" style="font-size: 40px; color: #ddd;"></i>
-                </div>
+                <?php endforeach; ?>
             </div>
+            <?php endif; ?>
         </div>
 
         <!-- Product Info -->
@@ -212,7 +260,7 @@ include '../includes/navbar.php';
                     <?php endfor; ?>
                 </div>
                 <span class="fw-bold"><?= number_format($produk['avg_rating'], 1) ?></span>
-                <span class="text-muted ms-2"><?= $produk['total_rating'] ?></span>
+                <span class="text-muted ms-2">(<?= $produk['total_rating'] ?>)</span>
                 <span class="text-muted ms-3">SKU: <?= strtoupper(substr(md5($produk['id_produk']), 0, 10)) ?></span>
             </div>
 
@@ -226,28 +274,33 @@ include '../includes/navbar.php';
                 Rp <?= number_format($produk['harga'], 0, ',', '.') ?>
             </div>
 
+            <!-- Quantity Control -->
+            <div class="mb-3">
+                <label class="form-label fw-semibold">Jumlah:</label>
+                <div class="qty-control">
+                    <button class="qty-btn" onclick="decreaseQty()">-</button>
+                    <input type="number" class="qty-input" id="qty" value="1" min="1" max="<?= $produk['stok'] ?>">
+                    <button class="qty-btn" onclick="increaseQty()">+</button>
+                    <span class="text-muted ms-2">Stok tersedia: <?= $produk['stok'] ?></span>
+                </div>
+            </div>
+
             <!-- Add to Cart Button -->
-            <button class="btn btn-ngajual btn-lg w-100 mb-3" onclick="addToCart(<?= $produk['id_produk'] ?>)">
+            <button class="btn btn-lg w-100 mb-3" style="background-color: #243796; color: white;" onclick="addToCart(<?= $produk['id_produk'] ?>)">
                 <i class="bi bi-cart-plus"></i> Tambah Ke Keranjang
             </button>
 
-            <!-- Quantity Control -->
-            <div class="qty-control mb-4">
-                <button class="qty-btn" onclick="decreaseQty()">-</button>
-                <input type="number" class="qty-input" id="qty" value="1" min="1" max="<?= $produk['stok'] ?>">
-                <button class="qty-btn" onclick="increaseQty()">+</button>
-            </div>
-
             <!-- Seller Info -->
-            <div class="seller-card">
+            <div class="seller-card mt-4">
                 <div class="d-flex align-items-center">
                     <div class="me-3">
-                        <div class="bg-primary text-white rounded-circle d-flex align-items-center justify-content-center" style="width: 50px; height: 50px;">
+                        <div class="rounded-circle d-flex align-items-center justify-content-center" style="width: 50px; height: 50px; background-color: #243796; color: white;">
                             <i class="bi bi-person fs-4"></i>
                         </div>
                     </div>
                     <div class="flex-grow-1">
-                        <h6 class="mb-0 fw-bold"><?= htmlspecialchars($produk['nama_penjual']) ?></h6>
+                        <h6 class="mb-0 fw-bold"><?= htmlspecialchars($produk['nama_toko']) ?></h6>
+                        <small class="text-muted"><?= htmlspecialchars($produk['nama_penjual']) ?></small>
                         <div class="d-flex align-items-center">
                             <span class="rating-stars me-1">
                                 <?php for ($i = 1; $i <= 5; $i++): ?>
@@ -332,9 +385,14 @@ include '../includes/navbar.php';
                 <a href="detail.php?id=<?= $related['id_produk'] ?>" class="text-decoration-none">
                     <div class="card h-100 related-product-card shadow-sm">
                         <div class="position-relative">
-                            <span class="discount-badge">-8%</span>
                             <div class="bg-light text-center" style="height: 150px; display: flex; align-items: center; justify-content: center;">
-                                <i class="bi bi-image" style="font-size: 60px; color: #ddd;"></i>
+                                <?php if (!empty($related['foto_produk'])): ?>
+                                    <img src="../assets/img/uploads/<?= htmlspecialchars($related['foto_produk']) ?>" 
+                                         alt="<?= htmlspecialchars($related['nama_produk']) ?>" 
+                                         style="max-width: 100%; max-height: 100%; object-fit: cover;">
+                                <?php else: ?>
+                                    <i class="bi bi-image" style="font-size: 60px; color: #ddd;"></i>
+                                <?php endif; ?>
                             </div>
                         </div>
                         <div class="card-body p-2">
@@ -344,11 +402,10 @@ include '../includes/navbar.php';
                                 <?php for ($i = 1; $i <= 5; $i++): ?>
                                     <i class="bi bi-star<?= $i <= round($related['avg_rating']) ? '-fill' : '' ?>"></i>
                                 <?php endfor; ?>
-                                <span class="text-muted"><?= $related['total_rating'] ?></span>
+                                <span class="text-muted">(<?= $related['total_rating'] ?>)</span>
                             </div>
                             <div class="d-flex align-items-center gap-2">
-                                <span class="text-danger fw-bold">Rp<?= number_format($related['harga'], 0, ',', '.') ?></span>
-                                <span class="text-muted text-decoration-line-through small">Rp<?= number_format($related['harga'] * 1.08, 0, ',', '.') ?></span>
+                                <span class="text-danger fw-bold">Rp <?= number_format($related['harga'], 0, ',', '.') ?></span>
                             </div>
                             <div class="mt-2">
                                 <span class="stock-badge"><i class="bi bi-check-circle"></i> IN STOCK</span>
@@ -364,6 +421,70 @@ include '../includes/navbar.php';
 </div>
 
 <script>
+// Image gallery variables
+const productImages = <?= json_encode($product_images) ?>;
+let currentImageIndex = 0;
+let autoSlideInterval;
+
+// Change image function
+function changeImage(index) {
+    const mainImage = document.getElementById('mainImage');
+    const thumbnails = document.querySelectorAll('.thumbnail');
+    
+    if (!mainImage || index >= productImages.length) return;
+    
+    // Fade out effect
+    mainImage.classList.add('fade-out');
+    
+    setTimeout(() => {
+        mainImage.src = '../assets/img/uploads/' + productImages[index];
+        mainImage.classList.remove('fade-out');
+    }, 250);
+    
+    // Update active thumbnail
+    thumbnails.forEach((thumb, i) => {
+        if (i === index) {
+            thumb.classList.add('active');
+        } else {
+            thumb.classList.remove('active');
+        }
+    });
+    
+    currentImageIndex = index;
+}
+
+// Auto slide images
+function startAutoSlide() {
+    if (productImages.length <= 1) return;
+    
+    autoSlideInterval = setInterval(() => {
+        currentImageIndex = (currentImageIndex + 1) % productImages.length;
+        changeImage(currentImageIndex);
+    }, 3000); // Change image every 3 seconds
+}
+
+// Stop auto slide when user interacts
+function stopAutoSlide() {
+    if (autoSlideInterval) {
+        clearInterval(autoSlideInterval);
+    }
+}
+
+// Start auto slide on page load
+if (productImages.length > 1) {
+    startAutoSlide();
+}
+
+// Stop auto slide when user clicks thumbnail
+document.querySelectorAll('.thumbnail').forEach(thumb => {
+    thumb.addEventListener('click', () => {
+        stopAutoSlide();
+        // Restart after 10 seconds of inactivity
+        setTimeout(startAutoSlide, 10000);
+    });
+});
+
+// Quantity controls
 function increaseQty() {
     const qtyInput = document.getElementById('qty');
     const max = parseInt(qtyInput.max);
@@ -381,6 +502,7 @@ function decreaseQty() {
     }
 }
 
+// Add to cart function
 function addToCart(productId) {
     <?php if (!isLoggedIn()): ?>
         alert('Silakan login terlebih dahulu!');
@@ -407,13 +529,11 @@ function addToCart(productId) {
     .then(data => {
         if (data.success) {
             button.innerHTML = '<i class="bi bi-check-circle"></i> Ditambahkan!';
-            button.classList.remove('btn-ngajual');
-            button.classList.add('btn-success');
+            button.style.backgroundColor = '#28a745';
             
             setTimeout(() => {
                 button.innerHTML = '<i class="bi bi-cart-plus"></i> Tambah Ke Keranjang';
-                button.classList.remove('btn-success');
-                button.classList.add('btn-ngajual');
+                button.style.backgroundColor = '#243796';
                 button.disabled = false;
             }, 2000);
             
@@ -433,4 +553,4 @@ function addToCart(productId) {
 }
 </script>
 
-<?php include '../includes/footer.php'; ?>  
+<?php include '../includes/footer.php'; ?>

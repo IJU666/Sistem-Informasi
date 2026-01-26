@@ -15,6 +15,7 @@ $stmt_produk = $pdo->query("
         p.nama_produk,
         p.harga,
         p.stok,
+        p.foto_produk,
         pj.nama_toko,
         k.nama_kategori,
         COALESCE(SUM(dp.jumlah), 0) as total_terjual
@@ -75,7 +76,7 @@ function getRating($pdo, $id_produk) {
         <div class="row align-items-center">
             <div class="col-lg-6">
                 <h1 class="display-5 fw-bold mb-3 ngajual " style="color: #243796;">Dapatkan Barang<br>Berkualitas<br>dengan Aman</h1>
-                <a href="produk/katalog.php" class="btn text-light btn-lg btn-ngajual" style="background-color: #243796; !important">Lihat Produk</a>
+                <a href="produk/katalog.php" class="btn text-light btn-lg btn-ngajual" style="background-color: #243796 !important;">Lihat Produk</a>
             </div>
         </div>
     </div>
@@ -99,8 +100,21 @@ function getRating($pdo, $id_produk) {
                     <?php endif; ?>
                     
                     <!-- Product image-->
-                    <div class="bg-light text-center" style="height: 200px; display: flex; align-items: center; justify-content: center;">
-                        <i class="bi bi-image" style="font-size: 80px; color: #ccc;"></i>
+                    <div class="bg-light text-center" style="height: 200px; display: flex; align-items: center; justify-content: center; overflow: hidden;">
+                        <?php 
+                        // Debug: tampilkan nama file foto
+                        // echo "Foto: " . htmlspecialchars($produk['foto_produk'] ?? 'kosong') . "<br>";
+                        
+                        if (!empty($produk['foto_produk'])): 
+                            $foto_path = "assets/img/uploads/" . $produk['foto_produk'];
+                        ?>
+                            <img src="<?= $foto_path ?>" 
+                                 alt="<?= htmlspecialchars($produk['nama_produk']) ?>" 
+                                 style="max-width: 100%; max-height: 100%; object-fit: cover;"
+                                 onerror="this.onerror=null; this.parentElement.innerHTML='<i class=\'bi bi-image\' style=\'font-size: 80px; color: #ccc;\'></i>';">
+                        <?php else: ?>
+                            <i class="bi bi-image" style="font-size: 80px; color: #ccc;"></i>
+                        <?php endif; ?>
                     </div>
                     
                     <!-- Product details-->
@@ -144,7 +158,7 @@ function getRating($pdo, $id_produk) {
         </div>
         
         <div class="text-center mt-4">
-            <a href="produk/katalog.php" class="btn btn-primary btn-lg" style="background-color: #243796; border: 0px; !important">Lihat Semua Produk</a>
+            <a href="produk/katalog.php" class="btn btn-primary btn-lg" style="background-color: #243796; border: 0px !important;">Lihat Semua Produk</a>
         </div>
     </div>
 </section>
