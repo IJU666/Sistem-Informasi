@@ -4,7 +4,7 @@ $host = '127.0.0.1'; // lebih aman di Windows
 $port = '3304';
 $dbname = 'ngajual';
 $username = 'root';
-$password = '';
+$password = '1234';
 
 try {
     $pdo = new PDO(
