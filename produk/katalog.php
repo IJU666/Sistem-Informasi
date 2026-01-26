@@ -16,6 +16,7 @@ $query = "
         p.harga,
         p.stok,
         pj.nama_toko,
+        p.foto_produk,
         k.nama_kategori,
         COALESCE(AVG(r.rating), 0) as avg_rating,
         COUNT(DISTINCT r.id_rating) as total_rating
@@ -57,7 +58,7 @@ $kategoris = $stmt_kat->fetchAll();
         <!-- Sidebar Filter -->
         <div class="col-md-3 mb-4">
             <div class="card">
-                <div class="card-header text-white" style="background-color: #243796; !important">
+                <div class="card-header text-white" style="background-color: #243796 !important;">
                     <h5 class="mb-0"><i class="bi bi-funnel"></i> Filter</h5>
                 </div>
                 <div class="card-body">
@@ -96,9 +97,22 @@ $kategoris = $stmt_kat->fetchAll();
                 <?php foreach ($produks as $produk): ?>
                 <div class="col">
                     <div class="card h-100 shadow-sm">
-                        <div class="bg-light text-center" style="height: 200px; display: flex; align-items: center; justify-content: center;">
+                    <div class="bg-light text-center" style="height: 200px; display: flex; align-items: center; justify-content: center; overflow: hidden;">
+                        <?php 
+                        // Debug: tampilkan nama file foto
+                        // echo "Foto: " . htmlspecialchars($produk['foto_produk'] ?? 'kosong') . "<br>";
+                        
+                        if (!empty($produk['foto_produk'])): 
+                            $foto_path = "../assets/img/uploads/" . $produk['foto_produk'];
+                        ?>
+                            <img src="<?= $foto_path ?>" 
+                                 alt="<?= htmlspecialchars($produk['nama_produk']) ?>" 
+                                 style="max-width: 100%; max-height: 100%; object-fit: cover;"
+                                 onerror="this.onerror=null; this.parentElement.innerHTML='<i class=\'bi bi-image\' style=\'font-size: 80px; color: #ccc;\'></i>';">
+                        <?php else: ?>
                             <i class="bi bi-image" style="font-size: 80px; color: #ccc;"></i>
-                        </div>
+                        <?php endif; ?>
+                    </div>
                         
                         <div class="card-body">
                             <h5 class="card-title"><?= htmlspecialchars($produk['nama_produk']) ?></h5>

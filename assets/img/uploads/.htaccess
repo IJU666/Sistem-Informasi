@@ -1,0 +1,18 @@
+# Prevent script execution in uploads folder
+# Hanya file gambar yang bisa diakses
+
+# Disable PHP execution
+php_flag engine off
+
+# Deny access to all files by default
+Order Deny,Allow
+Deny from all
+
+# Allow only image files
+<FilesMatch "\.(jpg|jpeg|png|gif|JPG|JPEG|PNG|GIF)$">
+    Order Allow,Deny
+    Allow from all
+</FilesMatch>
+
+# Prevent directory listing
+Options -Indexes
