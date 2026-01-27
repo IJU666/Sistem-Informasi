@@ -370,4 +370,3 @@ document.getElementById('productForm').addEventListener('submit', function(e) {
 });
 </script>
 
-<?php include '../includes/footer.php'; ?>

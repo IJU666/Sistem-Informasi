@@ -358,4 +358,3 @@ function confirmOrder(orderId, newStatus) {
 }
 </script>
 
-<?php include '../includes/footer.php'; ?>
