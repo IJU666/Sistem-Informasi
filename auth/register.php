@@ -42,12 +42,12 @@ include '../includes/header.php';
                         
                         <div class="mb-3">
                             <label for="no_hp" class="form-label">No. HP</label>
-                            <input type="tel" class="form-control" id="no_hp" name="no_hp" placeholder="08xxxxxxxxxx">
+                            <input type="tel" class="form-control" id="no_hp" name="no_hp" placeholder="08xxxxxxxxxx" required>
                         </div>
                         
                         <div class="mb-3">
                             <label for="alamat" class="form-label">Alamat</label>
-                            <textarea class="form-control" id="alamat" name="alamat" rows="2"></textarea>
+                            <textarea class="form-control" id="alamat" name="alamat" rows="2" required></textarea>
                         </div>
                         
                         <div class="mb-3">
@@ -89,19 +89,6 @@ include '../includes/header.php';
                             </label>
                         </div>
                                 <button type="submit" class="btn btn-primary w-100 py-2 mb-3">Daftar Akun</button>
-                                <hr>
-                                <div class="col-12 justify-content-center">
-                                    <center>
-                                <a href="index.html" class="btn btn-google btn-user btn-block">
-                                    <i class="fab fa-google fa-fw"></i> Register with 
-                                </a>
-                                <a href="index.html" class="btn btn-facebook btn-user btn-block">
-                                    <i class="fab fa-facebook-f fa-fw"></i> Register with Facebook
-                                </a>
-                                </center>
-                                </div>
-                            </form>
-                            <hr>
                             <div class="text-center">
                              
                             </div>
