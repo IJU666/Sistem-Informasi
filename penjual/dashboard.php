@@ -261,47 +261,56 @@ include '../includes/navbar.php';
     </div>
 
     <!-- Quick Actions -->
-    <div class="card shadow">
-        <div class="card-header bg-white">
-            <h5 class="mb-0"><i class="bi bi-lightning"></i> Aksi Cepat</h5>
-        </div>
-        <div class="card-body">
-            <div class="row text-center">
-                <div class="col-md-3 mb-3">
-                    <a href="produk_tambah.php" class="text-decoration-none">
-                        <div class="p-4 bg-light rounded">
-                            <i class="bi bi-plus-circle fs-1 text-primary"></i>
-                            <p class="mb-0 mt-2 fw-semibold">Tambah Produk</p>
-                        </div>
-                    </a>
-                </div>
-                <div class="col-md-3 mb-3">
-                    <a href="produk_list.php" class="text-decoration-none">
-                        <div class="p-4 bg-light rounded">
-                            <i class="bi bi-list-ul fs-1 text-success"></i>
-                            <p class="mb-0 mt-2 fw-semibold">Kelola Produk</p>
-                        </div>
-                    </a>
-                </div>
-                <div class="col-md-3 mb-3">
-                    <a href="laporan.php" class="text-decoration-none">
-                        <div class="p-4 bg-light rounded">
-                            <i class="bi bi-graph-up fs-1 text-info"></i>
-                            <p class="mb-0 mt-2 fw-semibold">Laporan Penjualan</p>
-                        </div>
-                    </a>
-                </div>
-                <div class="col-md-3 mb-3">
-                    <a href="profil_toko.php" class="text-decoration-none">
-                        <div class="p-4 bg-light rounded">
-                            <i class="bi bi-shop fs-1 text-warning"></i>
-                            <p class="mb-0 mt-2 fw-semibold">Profil Toko</p>
-                        </div>
-                    </a>
-                </div>
+    <!-- Quick Actions -->
+<div class="card shadow">
+    <div class="card-header bg-white">
+        <h5 class="mb-0"><i class="bi bi-lightning"></i> Aksi Cepat</h5>
+    </div>
+    <div class="card-body">
+        <div class="row text-center justify-content-center">
+            <div class="col-md-2 col-sm-4 col-6 mb-3">
+                <a href="produk_tambah.php" class="text-decoration-none">
+                    <div class="p-4 bg-light rounded">
+                        <i class="bi bi-plus-circle fs-1 text-primary"></i>
+                        <p class="mb-0 mt-2 fw-semibold">Tambah Produk</p>
+                    </div>
+                </a>
+            </div>
+            <div class="col-md-2 col-sm-4 col-6 mb-3">
+                <a href="produk_list.php" class="text-decoration-none">
+                    <div class="p-4 bg-light rounded">
+                        <i class="bi bi-list-ul fs-1 text-success"></i>
+                        <p class="mb-0 mt-2 fw-semibold">Kelola Produk</p>
+                    </div>
+                </a>
+            </div>
+            <div class="col-md-2 col-sm-4 col-6 mb-3">
+                <a href="pesanan_masuk.php" class="text-decoration-none">
+                    <div class="p-4 bg-light rounded">
+                        <i class="bi bi-bell-fill fs-1 text-warning"></i>
+                        <p class="mb-0 mt-2 fw-semibold">Pesanan Masuk</p>
+                    </div>
+                </a>
+            </div>
+            <div class="col-md-2 col-sm-4 col-6 mb-3">
+                <a href="laporan.php" class="text-decoration-none">
+                    <div class="p-4 bg-light rounded">
+                        <i class="bi bi-graph-up fs-1 text-info"></i>
+                        <p class="mb-0 mt-2 fw-semibold">Laporan Penjualan</p>
+                    </div>
+                </a>
+            </div>
+            <div class="col-md-2 col-sm-4 col-6 mb-3">
+                <a href="profil_toko.php" class="text-decoration-none">
+                    <div class="p-4 bg-light rounded">
+                        <i class="bi bi-shop fs-1 text-warning"></i>
+                        <p class="mb-0 mt-2 fw-semibold">Profil Toko</p>
+                    </div>
+                </a>
             </div>
         </div>
     </div>
+</div>
 </div>
 
 <?php include '../includes/footer.php'; ?>
