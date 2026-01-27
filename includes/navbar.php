@@ -12,7 +12,7 @@
         <div class="collapse navbar-collapse" id="navbarTop">
             <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
                 <li class="nav-item"><a class="nav-link" href="#tentang">Tentang Kami</a></li>
-                <li class="nav-item"><a class="nav-link" href="../auth/register.php">Ayo Berjualan</a></li>
+                <li class="nav-item"><a class="nav-link" href="./auth/register.php">Ayo Berjualan</a></li>
                 <li class="nav-item"><a class="nav-link" href="#layanan">Layanan Pengguna</a></li>
             </ul>
         </div>
@@ -33,7 +33,7 @@
         <div class="collapse navbar-collapse" id="navbarMain">
             <!-- Search + Cart -->
             <div class="d-flex align-items-center gap-3 flex-grow-1 mx-lg-5 my-3 my-lg-0">
-                <form action="produk/pencarian.php" method="GET" class="d-flex w-100">
+                <form action="./produk/katalog.php" method="GET" class="d-flex w-100">
                     <input class="form-control" type="search" name="q" placeholder="Cari Produk">
                     <button class="btn btn-outline-primary ms-2" type="submit">
                         <i class="bi bi-search"></i>
@@ -49,11 +49,11 @@
                         </a>
                         <ul class="dropdown-menu">
                             <?php if (isAdmin()): ?>
-                                <li><a class="dropdown-item" href="../admin/dashboard.php">Dashboard Admin</a></li>
+                                <li><a class="dropdown-item" href="./admin/dashboard.php">Dashboard Admin</a></li>
                             <?php elseif (isPenjual()): ?>
-                                <li><a class="dropdown-item" href="../penjual/dashboard.php">Dashboard Penjual</a></li>
+                                <li><a class="dropdown-item" href="./penjual/dashboard.php">Dashboard Penjual</a></li>
                             <?php elseif (isPembeli()): ?>
-                                <li><a class="dropdown-item" href="../pembeli/dashboard.php">Riwayat Pemesanan</a></li>
+                                <li><a class="dropdown-item" href="./pembeli/dashboard.php">Riwayat Pemesanan</a></li>
                             <?php endif; ?>
                             <li>
                                 <hr class="dropdown-divider">
